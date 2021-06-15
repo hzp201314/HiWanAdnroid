@@ -1,0 +1,99 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../config.gradle'
+
+def ext =rootProject.ext
+
+android {
+    compileSdkVersion ext.compileSdkVersion
+    buildToolsVersion ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion ext.minSdkVersion
+        targetSdkVersion ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+
+def dependency = rootProject.ext.dependencies
+def processor = rootProject.ext.annotationProcessor
+def apiFileDependencies = rootProject.ext.apiFileDependencies
+
+def debugImplementationDependencies = rootProject.ext.debugImplementationDependencies
+def releaseImplementationDependencies = rootProject.ext.releaseImplementationDependencies
+def androidTestImplementationDependencies = rootProject.ext.androidTestImplementationDependencies
+def testImplementationDependencies = rootProject.ext.testImplementationDependencies
+
+def debugApiDependencies = rootProject.ext.debugApiDependencies
+def releaseApiDependencies = rootProject.ext.releaseApiDependencies
+def compileOnlyDependencies = rootProject.ext.compileOnlyDependencies
+
+def implementationExcludes = rootProject.ext.implementationExcludes
+def debugImplementationExcludes = rootProject.ext.debugImplementationExcludes
+def releaseImplementationExcludes = rootProject.ext.releaseImplementationExcludes
+def testImplementationExclude = rootProject.ext.testImplementationExcludes
+def androidTestImplementationExcludes = rootProject.ext.androidTestImplementationExcludes
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation dependency.lifecycle_extensions
+    kapt dependency.lifecycle_compiler
+    api dependency.constraintlayout
+    api dependency.material
+    api dependency.recyclerview
+    api dependency.fragment_ktx
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation project(path: ':lib-config')
+    api project(path: ':lib-library')
+    api project(path: ':lib-ui')
+//    api project(path: ':service_login')
+    api project(path: ':lib-ability')
+
+    //glide图片
+    implementation dependency.glide
+    kapt annotationProcessor.glide_compiler
+
+    //http
+    implementation dependency.retrofit
+    api dependency.gson
+
+    //arouter
+    implementation dependency.arouter_api
+    kapt dependency.arouter_compiler
+
+
+}

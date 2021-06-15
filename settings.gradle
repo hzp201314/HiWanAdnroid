@@ -1,0 +1,8 @@
+include ':lib-debugtool'
+include ':lib-config'
+include ':lib-ability'
+include ':lib-library'
+include ':lib-ui'
+include ':lib-common'
+include ':app'
+rootProject.name = "HiWanAndroid"
