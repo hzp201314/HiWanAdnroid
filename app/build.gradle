@@ -2,13 +2,31 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'dagger.hilt.android.plugin'
+//apply plugin: 'android-aspectjx'
+apply plugin: 'com.huawei.agconnect'
+
+//apply from: '../project_config.gradle'
+////多渠道打包
+//apply from: '../flavor_channel.gradle'
+//apply from: '../360protect.gradle'
+//apply from: '../jenkins_package.gradle'
+
+apply from: '../config.gradle'
+
 def ext = rootProject.ext
 def dependency = rootProject.ext.dependencies
 
-android {
-    compileSdkVersion ext.compileSdkVersion
-    buildToolsVersion ext.buildToolsVersion
+//aspectjx {
+//    //排除所有特定class文件
+//    exclude 'module-info','com.taobao'
+//}
 
+//bugly
+//apply from: '../tinker-support.gradle'
+android {
     signingConfigs {
         release {
             storeFile file(RELEASE_STORE_FILE)
@@ -18,14 +36,28 @@ android {
         }
     }
 
+    compileSdkVersion ext.compileSdkVersion
+    buildToolsVersion ext.buildToolsVersion
+
     defaultConfig {
         applicationId "com.hzp.hiwanandroid"
-        minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion ext.minSdkVersion
+        targetSdkVersion ext.targetSdkVersion
+        versionCode ext.versionCode
+        versionName ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [AROUTER_MODULE_NAME: project.getName(), "room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+        //开启拆分包
+        multiDexEnabled true
+        //配置支持的动态库类型
+        ndk {
+            abiFilters 'armeabi-v7a', 'x86','x86_64'
+        }
     }
 
     buildTypes {
@@ -47,11 +79,39 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.5.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation dependency.core_ktx
+    implementation dependency.appcompat
+    implementation dependency.constraintlayout
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+
+    implementation project(path: ':lib-ui')
+    implementation project(path: ':lib-library')
+    implementation project(path: ':biz_home')
+//    implementation project(path: ':biz_detail')
+//    implementation project(path: ':biz_login')
+//    implementation project(path: ':biz_search')
+//    implementation project(path: ':biz_order')
+    implementation project(path: ':lib-common')
+    debugImplementation project(path: ':lib-debugtool')
+
+    //arouter路由
+    implementation dependency.arouter_api
+    kapt dependency.arouter_compiler
+
+    //添加multidex
+    implementation dependency.multidex
+    //添加对bugly  和 tinker，包含了crash捕获和热修复
+    implementation dependency.crashreport_upgrade
+    implementation dependency.tinker_android_lib
+
+    //hilt
+    implementation dependency.hilt_android
+    kapt dependency.hilt_android_compiler
+    kapt dependency.hilt_compiler
+
 }
+
+//apply plugin: 'tinypng'

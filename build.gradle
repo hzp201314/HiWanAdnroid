@@ -16,13 +16,13 @@ buildscript {
         //gradle需要从原来的3.5.0降级到3.4.2  bugly插件还没适配
         classpath "com.android.tools.build:gradle:3.4.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-//        classpath "com.tencent.bugly:tinker-support:1.1.5"
-//        classpath "com.alibaba:arouter-register:1.0.2"
+        classpath "com.tencent.bugly:tinker-support:1.1.5"
+        classpath "com.alibaba:arouter-register:1.0.2"
 //
-//        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
-//        classpath 'com.leon.channel:plugin:2.0.3'
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
+        classpath 'com.leon.channel:plugin:2.0.3'
 //
-//        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'
         classpath 'com.huawei.agconnect:agcp:1.4.1.300'
 
         // NOTE: Do not place your application dependencies here; they belong

@@ -21,5 +21,5 @@ object ApiFactory {
 
     fun <T> create(service: Class<T>): T {
         return hiRestful.create(service)
-    }
+}
 }

@@ -102,7 +102,7 @@ ext {
             "butterknife"                  : "com.jakewharton:butterknife:${version["butterknifeVersion"]}",
 
             // multidex
-            "multidex"                     : "com.android.support:multidex:2.0.1",
+            "multidex"                     : "androidx.multidex:multidex:2.0.1",
 
             // other
             "lottie"                       : "com.airbnb.android:lottie:2.3.0",

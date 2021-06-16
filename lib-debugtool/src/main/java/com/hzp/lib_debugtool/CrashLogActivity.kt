@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_crash_log.*
 import kotlinx.android.synthetic.main.activity_crash_log_list_item.view.*
-import com.hzp.lib_common.ui.component.HiBaseActivity
+import com.hzp.lib_common.component.HiBaseActivity
 import com.hzp.lib_library.crash.CrashMgr
 import java.io.File
 

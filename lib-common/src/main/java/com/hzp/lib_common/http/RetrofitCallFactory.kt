@@ -38,7 +38,7 @@ class RetrofitCallFactory(baseUrl: String) : HiCall.Factory {
         }
 
 
-        override fun enqueue(callback: HiCallback<T>) {
+        override fun enqueue(callback: HiCallback<Any>) {
             val realCall: Call<ResponseBody> = createRealCall(request)
             realCall.enqueue(object : Callback<ResponseBody> {
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
