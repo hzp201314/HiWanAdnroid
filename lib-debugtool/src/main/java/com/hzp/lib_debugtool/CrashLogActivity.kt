@@ -5,15 +5,16 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_crash_log.*
-import kotlinx.android.synthetic.main.activity_crash_log_list_item.view.*
-import com.hzp.lib_common.component.HiBaseActivity
+import com.hzp.lib_common.ui.component.HiBaseActivity
 import com.hzp.lib_library.crash.CrashMgr
+import kotlinx.android.synthetic.main.activity_crash_log_list_item.view.*
 import java.io.File
 
 class CrashLogActivity : HiBaseActivity() {

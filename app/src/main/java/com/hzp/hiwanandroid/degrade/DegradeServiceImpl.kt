@@ -4,6 +4,7 @@ import android.content.Context
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.facade.service.DegradeService
+import com.hzp.lib_common.route.HiRoute
 
 
 /**

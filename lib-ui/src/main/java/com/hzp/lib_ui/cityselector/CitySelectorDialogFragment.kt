@@ -14,9 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.hzp.lib_library.util.HiDisplayUtil
+import com.hzp.lib_library.util.HiRes
 import kotlinx.android.synthetic.main.dialog_city_selector.*
-import org.devio.hi.library.util.HiDisplayUtil
-import org.devio.hi.library.util.HiRes
+
 import com.hzp.lib_ui.R
 import com.hzp.lib_ui.item.HiViewHolder
 import com.hzp.lib_ui.tab.top.HiTabTopInfo

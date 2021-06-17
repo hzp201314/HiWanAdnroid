@@ -9,7 +9,7 @@ import android.widget.ImageView
 import androidx.core.os.TraceCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.hzp.biz_home.R
-import com.hzp.biz_home.model.HomeBanner
+import com.hzp.biz_home.model.HomeBannerData
 import com.hzp.lib_ability.HiAbility
 import com.hzp.lib_common.ext.loadUrl
 import com.hzp.lib_library.util.HiDisplayUtil
@@ -19,7 +19,7 @@ import com.hzp.lib_ui.banner.core.HiBannerMo
 import com.hzp.lib_ui.item.HiDataItem
 import com.hzp.lib_ui.item.HiViewHolder
 
-class BannerItem(val list: List<HomeBanner>) : HiDataItem<List<HomeBanner>, HiViewHolder>(list) {
+class BannerItem(val list: List<HomeBannerData>) : HiDataItem<List<HomeBannerData>, HiViewHolder>(list) {
     override fun onBindData(holder: HiViewHolder, position: Int) {
         TraceCompat.beginSection("BannerItem")
         val context = holder.itemView.context

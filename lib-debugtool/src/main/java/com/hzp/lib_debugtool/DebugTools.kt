@@ -8,14 +8,14 @@ import android.os.Process
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
-import org.devio.`as`.proj.ability.HiAbility
-import org.devio.`as`.proj.ability.pay.alipay.AliPayOrderInfoUtil
-import org.devio.`as`.proj.ability.share.ShareBundle
+import com.hzp.lib_ability.HiAbility
+import com.hzp.lib_ability.alipay.AliPayOrderInfoUtil
+import com.hzp.lib_ability.share.ShareBundle
 import com.hzp.lib_common.ext.showToast
 import com.hzp.lib_common.utils.SPUtil
-import org.devio.hi.library.fps.FpsMonitor
-import org.devio.hi.library.log.HiLog
-import org.devio.hi.library.util.*
+import com.hzp.lib_library.fps.FpsMonitor
+import com.hzp.lib_library.log.HiLog
+import com.hzp.lib_library.util.*
 import java.text.SimpleDateFormat
 import java.util.*
 

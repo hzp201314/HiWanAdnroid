@@ -4,10 +4,10 @@ import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import kotlinx.android.synthetic.main.activity_playground.*
-import com.hzp.lib_common.rn.HiRNActivity
-import com.hzp.lib_common.rn.HiRNCacheManager
+//import com.hzp.lib_common.rn.HiRNActivity
+//import com.hzp.lib_common.rn.HiRNCacheManager
 import com.hzp.lib_common.ui.component.HiBaseActivity
-import org.devio.hi.library.util.HiStatusBar
+import com.hzp.lib_library.util.HiStatusBar
 
 @Route(path = "/playground/main")
 class PlaygroundActivity : HiBaseActivity() {
@@ -27,8 +27,7 @@ class PlaygroundActivity : HiBaseActivity() {
                 .navigation()
         }
         go_rn.setOnClickListener {
-            ARouter.getInstance().build("/rn/main")
-                .withString(HiRNActivity.HI_RN_BUNDLE, HiRNCacheManager.MODULE_NAME_BRIDGE_DEMO).navigation()
+//            ARouter.getInstance().build("/rn/main").withString(HiRNActivity.HI_RN_BUNDLE, HiRNCacheManager.MODULE_NAME_BRIDGE_DEMO).navigation()
         }
     }
 }

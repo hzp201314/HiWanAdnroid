@@ -7,9 +7,9 @@ import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.annotation.Interceptor
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
-import org.devio.`as`.proj.common.route.RouteFlag
-import org.devio.`as`.proj.service_login.LoginServiceProvider
-import org.devio.hi.library.util.MainHandler
+import com.hzp.lib_common.route.RouteFlag
+import com.hzp.lib_library.util.MainHandler
+
 
 /**
  * 业务的拦截器，判断目标页是否具备预先定义好的属性
@@ -29,25 +29,27 @@ open class BizInterceptor : IInterceptor {
     override fun process(postcard: Postcard?, callback: InterceptorCallback?) {
         val flag = postcard!!.extra
 
-        if ((flag and (RouteFlag.FLAG_LOGIN) != 0)) {
-            //login
-            loginIfNecessary(postcard, callback)
-        } else {
-            callback!!.onContinue(postcard)
-        }
+//        if ((flag and (RouteFlag.FLAG_LOGIN) != 0)) {
+//            //login
+//            loginIfNecessary(postcard, callback)
+//        } else {
+//            callback!!.onContinue(postcard)
+//        }
+
+        callback!!.onContinue(postcard)
     }
 
-    private fun loginIfNecessary(postcard: Postcard?, callback: InterceptorCallback?) {
-        MainHandler.post(runnable = Runnable {
-            if (LoginServiceProvider.isLogin()) {
-                callback?.onContinue(postcard)
-            } else {
-                Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show()
-                val observer = Observer<Boolean> {
-                    callback?.onContinue(postcard)
-                }
-                LoginServiceProvider.login(context, observer)
-            }
-        })
-    }
+//    private fun loginIfNecessary(postcard: Postcard?, callback: InterceptorCallback?) {
+//        MainHandler.post(runnable = Runnable {
+//            if (LoginServiceProvider.isLogin()) {
+//                callback?.onContinue(postcard)
+//            } else {
+//                Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show()
+//                val observer = Observer<Boolean> {
+//                    callback?.onContinue(postcard)
+//                }
+//                LoginServiceProvider.login(context, observer)
+//            }
+//        })
+//    }
 }

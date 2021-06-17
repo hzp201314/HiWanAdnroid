@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.hzp.hiwanandroid.R
+import com.hzp.lib_common.route.HiRoute
 import kotlinx.android.synthetic.main.layout_global_degrade.*
 
 /**

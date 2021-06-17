@@ -6,6 +6,7 @@ buildscript {
     ext.plugin_version = "0.1.4"
 
     repositories {
+        maven { url 'http://localhost:8081/repository/maven-public/' }
         google()
         jcenter()
         mavenCentral()
@@ -32,6 +33,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'http://localhost:8081/repository/maven-public/' }
         google()
         jcenter()
         mavenCentral()

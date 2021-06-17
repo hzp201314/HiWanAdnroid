@@ -42,23 +42,23 @@ public class MainActivity extends HiBaseActivity implements MainActivityLogic.Ac
 
         TraceCompat.endSection();
 
-        PermissionUtil.Companion.permission(PermissionConstants.STORAGE, PermissionConstants.PHONE)
-                .callback(new PermissionUtil.FullCallback() {
-                    @Override
-                    public void onGranted(@Nullable List<String> permissionsGranted) {
-                        showToast("测试权限申请框架,代码在lib-library，请自行查看代码说明");
-                    }
-
-                    @Override
-                    public void onDenied(@Nullable List<String> permissionsDeniedForever, @Nullable List<String> permissionsDenied) {
-                        showToast("被拒了,请查看哪些被永久拒绝，哪些是临时拒绝");
-                    }
-                }).rationale(shouldRequest -> {
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setMessage("权限申请被多次拒绝过，可是我们需要该权限，可以弹窗说明")
-                            .setPositiveButton("可以授权",(dialog,which)->shouldRequest.again(true))
-                            .show();
-        }).request();
+//        PermissionUtil.Companion.permission(PermissionConstants.STORAGE, PermissionConstants.PHONE)
+//                .callback(new PermissionUtil.FullCallback() {
+//                    @Override
+//                    public void onGranted(@Nullable List<String> permissionsGranted) {
+//                        showToast("测试权限申请框架,代码在lib-library，请自行查看代码说明");
+//                    }
+//
+//                    @Override
+//                    public void onDenied(@Nullable List<String> permissionsDeniedForever, @Nullable List<String> permissionsDenied) {
+//                        showToast("被拒了,请查看哪些被永久拒绝，哪些是临时拒绝");
+//                    }
+//                }).rationale(shouldRequest -> {
+//                    new AlertDialog.Builder(MainActivity.this)
+//                            .setMessage("权限申请被多次拒绝过，可是我们需要该权限，可以弹窗说明")
+//                            .setPositiveButton("可以授权",(dialog,which)->shouldRequest.again(true))
+//                            .show();
+//        }).request();
 
     }
 

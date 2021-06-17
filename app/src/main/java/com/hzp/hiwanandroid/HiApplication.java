@@ -7,11 +7,14 @@ import androidx.core.os.TraceCompat;
 import androidx.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.hzp.lib_ability.HiAbility;
+import com.hzp.lib_common.BuildConfig;
+import com.hzp.lib_common.ui.component.HiBaseApplication;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 
 
-//import dagger.hilt.android.HiltAndroidApp;
+import dagger.hilt.android.HiltAndroidApp;
 
 //@HiltAndroidApp
 public class HiApplication extends HiBaseApplication {
@@ -24,10 +27,10 @@ public class HiApplication extends HiBaseApplication {
 
         // CrashMgr.INSTANCE.init();
         // com.taobao.util.Alog.
-        HiAbility.INSTANCE.init(this, "Umeng", null);
+//        HiAbility.INSTANCE.init(this, "Umeng", null);
 
-        String[] deviceInfo = HiAbility.INSTANCE.getTestDeviceInfo(this);
-        Log.e("HiApplication",deviceInfo[0]+"---"+deviceInfo[1]);
+//        String[] deviceInfo = HiAbility.INSTANCE.getTestDeviceInfo(this);
+//        Log.e("HiApplication",deviceInfo[0]+"---"+deviceInfo[1]);
         TraceCompat.endSection();
 
         //TaskStartUp.start();

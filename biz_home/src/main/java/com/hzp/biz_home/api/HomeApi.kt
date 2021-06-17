@@ -9,7 +9,7 @@ import com.hzp.lib_library.restful.annotation.Path
 interface HomeApi {
 
     @CacheStrategy(CacheStrategy.CACHE_FIRST)
-    @GET("banner/json")
+    @GET("/banner/json")
     fun queryHomeBannerList(@CacheStrategy cacheStrategy: Int): HiCall<HomeBannerList>
 
     @CacheStrategy(CacheStrategy.CACHE_FIRST)
