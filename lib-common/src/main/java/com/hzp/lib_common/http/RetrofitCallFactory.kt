@@ -18,12 +18,11 @@ class RetrofitCallFactory(baseUrl: String) : HiCall.Factory {
     private var apiService: ApiService
 
     init {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .build()
+        val retrofit = Retrofit.Builder().baseUrl(baseUrl).build()
 
         apiService = retrofit.create(ApiService::class.java)
-        hiConvert = GsonConvert()
+//        hiConvert = GsonConvert()
+        hiConvert = WanAndroidGsonConvert()
     }
 
     override fun newCall(request: HiRequest): HiCall<Any> {

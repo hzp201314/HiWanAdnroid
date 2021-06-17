@@ -14,7 +14,7 @@ ext {
             supportLibraryVersion: "28.0.0",
             smartrefreshVersion  : "1.1.0-alpha-21",
             okhttpVersion        : "3.9.0",
-            retrofitVersion      : "2.8.1",
+            retrofitVersion      : "2.6.0",
             glideVersion         : "4.9.0",
             daggerVersion        : "2.15",
             butterknifeVersion   : "8.8.1",
